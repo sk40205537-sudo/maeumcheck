@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#6750a4">
+<title>마음체크 | 교제 관계 자가점검</title>
+<style>
+:root{--purple:#6750a4;--purple2:#8875d6;--ink:#25233a;--muted:#6f6b82;--bg:#f7f5fc;--line:#e7e2f2;--pink:#fff0f4;--blue:#eff5ff;--red:#b42345;--green:#18795b}
+*{box-sizing:border-box} body{margin:0;background:linear-gradient(145deg,#f9f6ff,#fdfbff 48%,#f1f5ff);font-family:system-ui,-apple-system,"Malgun Gothic",sans-serif;color:var(--ink);line-height:1.55}
+main{max-width:760px;margin:0 auto;padding:22px 16px 48px}.brand{display:flex;align-items:center;gap:10px;font-weight:800;color:var(--purple);letter-spacing:-.3px}.logo{width:42px;height:42px;border-radius:14px;background:linear-gradient(135deg,#8976d7,#5d4aa0);display:grid;place-items:center;color:white;font-size:22px;box-shadow:0 6px 18px #6750a426}
+.card{background:#fff;border:1px solid var(--line);border-radius:24px;padding:24px;margin-top:18px;box-shadow:0 12px 36px #39266c0b}
+.hero{padding:32px 25px;background:linear-gradient(140deg,#f0eaff,#fff 60%,#fceef5);overflow:hidden;position:relative}.eyebrow{font-size:12px;font-weight:800;color:var(--purple);letter-spacing:1px}.hero h1{font-size:clamp(28px,6vw,42px);line-height:1.2;letter-spacing:-1.2px;margin:12px 0}.hero p{color:var(--muted);max-width:500px}.pill{display:inline-block;background:#eee8ff;color:#5a449d;border-radius:999px;padding:6px 11px;font-size:12px;font-weight:700;margin:4px 4px 0 0}
+button{border:0;border-radius:14px;padding:14px 18px;font:inherit;font-weight:750;cursor:pointer;transition:.15s}button:focus-visible,input:focus-visible{outline:3px solid #9b8be3;outline-offset:2px}.primary{background:var(--purple);color:white;width:100%;margin-top:16px}.primary:hover{background:#57418f}.secondary{background:#f0ecfa;color:var(--purple)}.textbtn{background:transparent;color:var(--muted);padding:8px}
+h2{font-size:22px;letter-spacing:-.5px;margin:0 0 10px}h3{font-size:17px;margin:0 0 8px}.muted{color:var(--muted);font-size:14px}.notice{border-radius:16px;padding:14px 16px;background:#fff7e8;color:#73521c;font-size:13px;margin-top:14px}.privacy{border:1px solid #dcefe7;background:#f3fbf7;color:#275b49;border-radius:14px;padding:13px;font-size:13px}
+.steps{display:flex;gap:6px;margin:18px 0 24px}.step{height:5px;flex:1;border-radius:10px;background:#e9e4f4}.step.active{background:var(--purple)}
+.topline{display:flex;justify-content:space-between;gap:12px;align-items:center;color:var(--muted);font-size:13px;margin-bottom:12px}.tag{border-radius:999px;padding:5px 10px;background:#f0ecfa;color:var(--purple);font-size:12px;font-weight:800}
+.question{font-size:21px;line-height:1.45;letter-spacing:-.4px;margin:16px 0 22px}.options{display:grid;gap:10px}.option{display:flex;align-items:center;gap:12px;border:1px solid var(--line);border-radius:15px;padding:14px;cursor:pointer;background:white}.option:has(input:checked){border-color:var(--purple);background:#f7f4ff;box-shadow:0 0 0 1px var(--purple) inset}.option input{accent-color:var(--purple);width:18px;height:18px;flex-shrink:0}.option span{font-size:15px}
+.nav{display:grid;grid-template-columns:1fr 2fr;gap:10px;margin-top:18px}.nav button{margin:0}.hidden{display:none!important}
+.resultscore{font-size:30px;font-weight:850;letter-spacing:-1px}.resultrow{border:1px solid var(--line);border-radius:18px;padding:17px;margin-top:12px}.resultrow.self{background:#fff7fb}.resultrow.verbal{background:#f4f8ff}.resultrow.physical{background:#f7f3ff}.resulthead{display:flex;justify-content:space-between;gap:10px;align-items:center}.status{font-size:12px;font-weight:800;border-radius:999px;padding:5px 9px;background:#eee;color:#514d60}.status.attn{background:#ffe4e9;color:#9b1c3c}.status.info{background:#e7f6ef;color:#17694f}
+ul{padding-left:20px}.resource{display:block;text-decoration:none;color:var(--purple);font-weight:750;margin:10px 0}.footer{font-size:12px;color:#827d91;text-align:center;padding:25px 8px}.small{font-size:12px;color:var(--muted)}.alert{border:1px solid #f0b7c3;background:#fff1f4;border-radius:18px;padding:17px;margin-top:15px}.alert strong{color:#a3183a}.result-actions{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:16px}
+@media(max-width:480px){main{padding:15px 12px 34px}.card{padding:20px 17px;border-radius:20px}.hero{padding:27px 20px}.nav{grid-template-columns:1fr 1.5fr}.question{font-size:19px}.result-actions{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<main>
+  <div class="brand"><div class="logo">♡</div><div>마음체크 <span class="small">· 관계 안전 자가점검</span></div></div>
+
+  <section id="home" class="card hero">
+    <div class="eyebrow">RELATIONSHIP WELLBEING CHECK</div>
+    <h1>우리의 관계,<br>건강한가요?</h1>
+    <p>짧은 질문을 통해 관계 속 존중과 안전의 신호를 돌아보세요. 정답을 맞히는 검사가 아니라, 나의 경험을 살펴보는 시간입니다.</p>
+    <div><span class="pill">21개 문항</span><span class="pill">약 3–5분</span><span class="pill">3개 영역</span></div>
+    <div class="notice"><b>먼저 확인해주세요.</b><br>이 도구는 교육·자가점검용 시제품이며, 전문적인 진단이나 공식 위험도 평가가 아닙니다. 결과가 낮더라도 폭력이나 위협이 없다는 뜻은 아닙니다.</div>
+    <div class="privacy" style="margin-top:14px">🔒 답변은 이 화면에서만 계산됩니다. 서버로 전송하거나 저장하지 않습니다.</div>
+    <button class="primary" onclick="startQuiz()">자가점검 시작하기 →</button>
+  </section>
+
+  <section id="quiz" class="card hidden" aria-live="polite">
+    <div class="topline"><span id="categoryLabel" class="tag">자아존중성</span><span id="countLabel">1 / 21</span></div>
+    <div class="steps" id="progress"></div>
+    <h2 id="sectionTitle">나의 경계와 존중</h2>
+    <p class="muted" id="sectionHelp">최근의 관계 경험을 떠올리며 답해주세요.</p>
+    <div class="question" id="questionText"></div>
+    <div class="options" id="options"></div>
+    <div class="nav"><button class="secondary" id="prevBtn" onclick="prevQuestion()">← 이전</button><button class="primary" id="nextBtn" onclick="nextQuestion()">다음 →</button></div>
+    <p class="small">불편한 질문은 건너뛰거나 언제든 종료할 수 있습니다.</p>
+    <button class="textbtn" onclick="goHome()">점검 종료</button>
+  </section>
+
+  <section id="results" class="hidden">
+    <div class="card">
+      <div class="eyebrow">YOUR CHECK-IN</div><h2 style="margin-top:8px">자가점검 결과</h2>
+      <p class="muted">이 결과는 답변을 돌아보기 위한 참고 자료입니다. 교제폭력 여부를 확정하거나 위험을 예측하지 않습니다.</p>
+      <div id="resultRows"></div>
+      <div id="urgentAlert" class="alert hidden"></div>
+      <div class="notice"><b>결과를 해석할 때 기억할 점</b><br>문항 수만으로 관계의 안전을 판단할 수 없습니다. 한 번의 위협이나 강제적인 행동도 가볍게 넘길 필요가 없습니다. 상대의 행동에 대한 책임은 그 행동을 한 사람에게 있습니다.</div>
+      <h3 style="margin-top:22px">지금 해볼 수 있는 일</h3>
+      <ul>
+        <li>불편하거나 두려웠던 일을 믿을 만한 사람에게 이야기하기</li>
+        <li>안전이 걱정된다면 상대와 단둘이 대면해 해결하려 하지 말고 안전한 장소와 도움을 먼저 확보하기</li>
+        <li>즉각적인 위험이 있으면 112에 연락하기</li>
+      </ul>
+      <a class="resource" href="https://www.women1366.kr/" target="_blank" rel="noopener">여성긴급전화 1366 홈페이지 ↗</a>
+      <a class="resource" href="https://www.police.go.kr/" target="_blank" rel="noopener">경찰청 홈페이지 ↗</a>
+      <p class="small">1366은 폭력 피해 관련 상담·연계 서비스를 안내합니다. 이용 가능한 지원은 상황에 따라 확인해주세요.</p>
+      <div class="result-actions"><button class="secondary" onclick="restartQuiz()">다시 점검하기</button><button class="primary" style="margin:0" onclick="window.print()">결과 인쇄 / PDF</button></div>
+    </div>
+  </section>
+  <div class="footer">마음체크 · 교제폭력 예방 교육 프로젝트 시제품<br>관계는 통제가 아니라 존중에서 시작됩니다.</div>
+</main>
+<script>
+const groups = [
+ {name:"자아존중성",cls:"self",title:"나의 경계와 존중",help:"아래 문장은 나의 독립성과 자기존중에 관한 내용입니다. 최근 관계에서 얼마나 나에게 해당하는지 답해주세요.",questions:[
+ "연인과의 약속보다 나의 개인적인 일정이나 휴식 시간이 더 중요할 때, 이를 솔직하게 말하고 거절하는 것이 어렵지 않다.",
+ "연인과 하루 연락이 안 되거나 데이트를 자주 못 하더라도, 나의 일상이나 감정이 크게 흔들리지 않고 편안함을 유지한다.",
+ "연인이 나의 의견이나 취향을 지속적으로 비난할 때, 내 탓으로 돌리지 않고 불쾌함을 표현할 수 있다.",
+ "내 스마트폰 비밀번호나 사생활, 인맥을 연인에게 모두 공유해야만 관계가 안전하다고 느껴지지는 않는다.",
+ "연인이 화를 냈을 때, 무조건 내 잘못이라고 생각하며 사과하지 않는다.",
+ "의견 차이나 갈등이 생겼을 때, 폭언이나 위협 없이 대화로 해결하려는 태도가 서로에게 지켜진다.",
+ "연인의 기분을 맞추기 위해 나의 가치관이나 소중한 친구 관계, 자존심을 포기하지 않는다."
+ ]},
+ {name:"언어적 폭력",cls:"verbal",title:"말로 상처 주거나 통제하는 행동",help:"최근 관계에서 다음 행동을 경험한 적이 얼마나 자주 있었는지 답해주세요.",questions:[
+ "연인이 화가 났을 때 평소보다 거친 말투로 이야기하거나 기분 나쁜 말을 한 적이 있다.",
+ "연인이 장난이나 농담으로 나의 외모, 성격, 능력 등을 이야기해 마음이 불편했던 적이 있다.",
+ "의견이 다를 때 내 생각을 충분히 들어주지 않거나 내 의견을 가볍게 여긴다고 느낀 적이 있다.",
+ "연인이 다른 사람과 나를 비교해 기분이 상했던 적이 있다.",
+ "다툴 때 문제를 함께 해결하기보다 내게 잘못이 있다고 반복해서 이야기한 적이 있다.",
+ "연인이 화가 났을 때 헤어지겠다는 말로 나에게 부담을 준 적이 있다.",
+ "싫어하는 말이나 표현이 불편하다고 말했는데도 연인이 대수롭지 않게 여기거나 반복한 적이 있다."
+ ]},
+ {name:"신체적 폭력",cls:"physical",title:"신체적 위협과 경계 침해",help:"실제 경험이 있었는지 신중하게 돌아봐주세요. 어떤 행동도 연인이라는 이유로 정당화되지는 않습니다.",questions:[
+ "언쟁 중 연인이 책이나 그릇 등 물건을 집어 던지는 행동을 보인 적이 있다.",
+ "연인이 머리를 잡아당기거나 뺨을 때리는 등 신체적으로 해를 가한 적이 있다.",
+ "내가 원하지 않거나 거부했는데도 연인이 신체적·성적인 접촉을 강요하거나 계속 요구한 적이 있다.",
+ "연인이 특정 공간에서 나가지 못하도록 막거나 신체적으로 제압한 적이 있다.",
+ "연인이 손가락질하거나 미간을 밀거나 어깨를 밀치는 등 위협적이거나 원치 않는 신체 행동을 한 적이 있다.",
+ "연인이 손을 들어 올리는 등의 행동을 할 때 폭력이 두려워 위축된 적이 있다.",
+ "언쟁 중 연인이 벽을 내리치거나 소리를 지르는 등 위협적인 행동을 보인 적이 있다."
+ ]}
+];
+const answers=[
+ {label:"전혀 그렇지 않다 / 전혀 없었다",value:0},
+ {label:"그렇지 않다 / 드물게 있었다",value:1},
+ {label:"보통이다 / 가끔 있었다",value:2},
+ {label:"그렇다 / 자주 있었다",value:3},
+ {label:"매우 그렇다 / 매우 자주 있었다",value:4}
+];
+// Self-esteem items are positively phrased: disagreement is a possible area to reflect on.
+// The other two sections count frequency of concerning experiences.
+let idx=0, responses=Array(21).fill(null);
+function allQuestions(){return groups.flatMap((g,gi)=>g.questions.map((q,qi)=>({q,gi,qi})));}
+const qs=allQuestions();
+function show(id){["home","quiz","results"].forEach(x=>document.getElementById(x).classList.toggle("hidden",x!==id));window.scrollTo({top:0,behavior:"smooth"});}
+function goHome(){show("home");}
+function startQuiz(){idx=0;responses=Array(21).fill(null);renderQuestion();show("quiz");}
+function renderQuestion(){
+ const item=qs[idx],g=groups[item.gi];
+ document.getElementById("categoryLabel").textContent=g.name;
+ document.getElementById("countLabel").textContent=(idx+1)+" / "+qs.length;
+ document.getElementById("sectionTitle").textContent=g.title;
+ document.getElementById("sectionHelp").textContent=g.help;
+ document.getElementById("questionText").textContent=item.q;
+ document.getElementById("progress").innerHTML=qs.map((_,i)=>`<div class="step ${i<=idx?'active':''}"></div>`).join("");
+ const labels=answers.map(a=>a.label);
+ document.getElementById("options").innerHTML=labels.map((label,v)=>`<label class="option"><input type="radio" name="answer" value="${v}" ${responses[idx]===v?'checked':''}><span>${label}</span></label>`).join("");
+ document.getElementById("prevBtn").disabled=idx===0;
+ document.getElementById("prevBtn").style.opacity=idx===0?".45":"1";
+ document.getElementById("nextBtn").textContent=idx===qs.length-1?"결과 확인하기":"다음 →";
+}
+function saveCurrent(){const selected=document.querySelector('input[name="answer"]:checked');if(selected)responses[idx]=Number(selected.value);}
+function nextQuestion(){saveCurrent();if(responses[idx]===null){alert("답변을 선택하거나, 지금은 점검을 종료할 수 있어요.");return;}if(idx<qs.length-1){idx++;renderQuestion();}else{showResults();}}
+function prevQuestion(){saveCurrent();if(idx>0){idx--;renderQuestion();}}
+function showResults(){
+ const summaries=groups.map((g,gi)=>{
+   const start=gi*7,vals=responses.slice(start,start+7);
+   // Count only notable responses; for self-esteem, low agreement indicates an area to reflect on.
+   const concerning=vals.filter(v=>gi===0?v<=1:v>=2).length;
+   const frequent=vals.filter(v=>gi===0?v===0:v>=3).length;
+   return {...g,concerning,frequent,vals};
+ });
+ document.getElementById("resultRows").innerHTML=summaries.map(s=>{
+   let label,desc,status;
+   if(s.cls==="self"){
+     label=s.concerning>=3?"자기존중·경계 점검 권장":"응답을 바탕으로 돌아보기";
+     status=s.concerning>=3?"점검 권장":"참고 결과";
+     desc=s.concerning>=3?"자기 의사 표현이나 개인의 경계를 지키는 데 어려움이 있는지 살펴보세요. 이는 폭력 여부를 판정하는 점수가 아닙니다.":"현재 답변에서 자기존중과 경계에 관한 일부 보호 요인이 나타났습니다. 이것만으로 관계가 안전하다고 단정할 수는 없습니다.";
+   } else {
+     label=s.concerning>=3?"여러 주의 신호 응답":"응답을 바탕으로 돌아보기";
+     status=s.concerning>=3?"주의 신호":"참고 결과";
+     desc=s.concerning>=3?"프로젝트용 참고 기준에서 주의 신호 응답이 여러 개 확인됐습니다. 반복 여부와 실제 상황을 신뢰할 수 있는 사람 또는 전문기관과 함께 살펴보세요.":"응답 개수만으로 뚜렷한 패턴을 단정할 수 없습니다. 한 번이라도 두렵거나 원치 않는 일이 있었다면 그 경험을 가볍게 여기지 마세요.";
+   }
+   return `<div class="resultrow ${s.cls}"><div class="resulthead"><h3>${s.name}</h3><span class="status ${s.concerning>=3?'attn':'info'}">${status}</span></div><div class="resultscore">${s.concerning}<span style="font-size:15px;font-weight:600;color:#777"> / 7개 참고 신호</span></div><p style="margin:7px 0 5px;font-weight:750">${label}</p><p class="muted" style="margin:0">${desc}</p></div>`;
+ }).join("");
+ const physical=responses.slice(14,21);
+ const serious=[1,2,3].some(i=>physical[i]>=1); // hitting, coercive contact, preventing exit
+ const anyPhysical=physical.some(v=>v>=2);
+ const alert=document.getElementById("urgentAlert");
+ if(serious||anyPhysical){
+   alert.classList.remove("hidden");
+   alert.innerHTML="<strong>점수와 별개로 확인할 중요한 신호</strong><br>신체적 폭력, 원치 않는 접촉의 강요, 이동을 막는 행동 또는 위협과 관련된 답변이 있습니다. 지금 위험하다고 느낀다면 안전한 장소로 이동하고 긴급한 경우 112에 연락하세요. 당장 신고할지 결정하기 어렵더라도 믿을 만한 사람이나 전문 상담기관에 상황을 이야기할 수 있습니다.";
+ }else{alert.classList.add("hidden");alert.textContent="";}
+ show("results");
+}
+function restartQuiz(){startQuiz();}
+</script>
+</body></html>
